@@ -41,7 +41,12 @@ module.exports = {
         var _buttonLabel = buttonLabel && typeof buttonLabel === 'string' ? buttonLabel : 'OK';
         exec(completeCallback, null, 'Notification', 'alert', [_message, _title, _buttonLabel]);
     },
-
+   alertnotitle: function (message, completeCallback, buttonLabel) {
+        var _message = typeof message === 'string' ? message : JSON.stringify(message);
+    
+        var _buttonLabel = buttonLabel && typeof buttonLabel === 'string' ? buttonLabel : 'OK';
+        exec(completeCallback, null, 'Notification', 'alertnotitle', [_message, _buttonLabel]);
+    },
     /**
      * Open a native confirm dialog, with a customizable title and button text.
      * The result that the user selects is returned to the result callback.
