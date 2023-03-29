@@ -64,6 +64,8 @@ public class Notification extends CordovaPlugin {
     private static final String ACTION_PROGRESS_STOP  = "progressStop";
     private static final String ACTION_DISMISS_PREVIOUS  = "dismissPrevious";
     private static final String ACTION_DISMISS_ALL  = "dismissAll";
+     private static final String ACTION_ALERTNOTITLE  = "alertnotitle";
+       
 
     private static final long BEEP_TIMEOUT   = 5000;
     private static final long BEEP_WAIT_TINE = 100;
@@ -103,8 +105,11 @@ public class Notification extends CordovaPlugin {
         else if (action.equals(ACTION_ALERT)) {
             this.alert(args.getString(0), args.getString(1), args.getString(2), callbackContext);
             return true;
-        }
-        else if (action.equals(ACTION_CONFIRM)) {
+        }else if(action.equals(ACTION_ALERTNOTITLE)){
+            this.alertnotitle(args.getString(0), args.getString(1), callbackContext);
+            return true;
+        
+        }else if (action.equals(ACTION_CONFIRM)) {
             this.confirm(args.getString(0), args.getString(1), args.getJSONArray(2), callbackContext);
             return true;
         }
